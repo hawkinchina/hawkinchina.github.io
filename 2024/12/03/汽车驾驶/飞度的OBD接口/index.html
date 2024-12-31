@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="obd,飞度,">
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="Hawk's Notes" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1. 飞度的OBD2接口 2. OBD2 Softwarehttps://obd2-elm327.com/obd2-software-programs-applications-apps  Generally I always recommend the same aplication for each system. For windows the best option is ScanMast">
+<meta name="keywords" content="obd,飞度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="飞度OBD检测">
+<meta property="og:url" content="https://hawkinchina.github.io/2024/12/03/汽车驾驶/飞度的OBD接口/index.html">
+<meta property="og:site_name" content="Hawk&#39;s Notes">
+<meta property="og:description" content="1. 飞度的OBD2接口 2. OBD2 Softwarehttps://obd2-elm327.com/obd2-software-programs-applications-apps  Generally I always recommend the same aplication for each system. For windows the best option is ScanMast">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/447512894846997.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/82335203636089.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/122734467957708.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/128766926961840.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/520583219143364.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/520813991910244.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/239052420596886.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/556574414636092.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/515105137961843.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/302282278910248.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/141042923289477.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/273790807596890.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/226791606143368.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/242993754957712.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/123634796922038.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/520603392543578.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/274864603669414.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/552324750569954.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/284685538772356.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/586535171377120.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/337064915289480.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/554815197847003.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/86092407636095.png">
+<meta property="og:image" content="https://hawkinchina.github.io/vx_images/41953230961846.png">
+<meta property="og:updated_time" content="2024-12-27T11:25:39.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="飞度OBD检测">
+<meta name="twitter:description" content="1. 飞度的OBD2接口 2. OBD2 Softwarehttps://obd2-elm327.com/obd2-software-programs-applications-apps  Generally I always recommend the same aplication for each system. For windows the best option is ScanMast">
+<meta name="twitter:image" content="https://hawkinchina.github.io/vx_images/447512894846997.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://hawkinchina.github.io/2024/12/03/汽车驾驶/飞度的OBD接口/">
+
+
+
+
+
+  <title>飞度OBD检测 | Hawk's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hawk's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Quick notes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hawkinchina.github.io/2024/12/03/汽车驾驶/飞度的OBD接口/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hawk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/jack.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hawk's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">飞度OBD检测</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-12-03T12:26:28+08:00">
+                2024-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/汽车维修/" itemprop="url" rel="index">
+                    <span itemprop="name">汽车维修</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+
+            
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+            
+
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-飞度的OBD2接口"><a href="#1-飞度的OBD2接口" class="headerlink" title="1. 飞度的OBD2接口"></a>1. 飞度的OBD2接口</h1><p><img src="/vx_images/447512894846997.png" alt=""></p>
+<h1 id="2-OBD2-Software"><a href="#2-OBD2-Software" class="headerlink" title="2. OBD2 Software"></a>2. OBD2 Software</h1><p><a href="https://obd2-elm327.com/obd2-software-programs-applications-apps" target="_blank" rel="noopener">https://obd2-elm327.com/obd2-software-programs-applications-apps</a></p>
+<ul>
+<li>Generally I always recommend the same aplication for each system. For <code>windows</code> the best option is <code>ScanMaster</code>, for <code>iOs</code> is the <code>DashCommand</code> app and for <code>Android</code> is the <code>Torque PRO</code> app.</li>
+</ul>
+<a id="more"></a>
+<p><img src="/vx_images/82335203636089.png" alt=""></p>
+<ul>
+<li><a href="http://www.ydobd.com/index.html" target="_blank" rel="noopener">http://www.ydobd.com/index.html</a></li>
+</ul>
+<p><img src="/vx_images/122734467957708.png" alt=""></p>
+<h1 id="3-ELM327-Compatibility"><a href="#3-ELM327-Compatibility" class="headerlink" title="3. ELM327 Compatibility"></a>3. ELM327 Compatibility</h1><p><a href="https://obd2-elm327.com/obd2-elm327-can-not-connect-ecu" target="_blank" rel="noopener">https://obd2-elm327.com/obd2-elm327-can-not-connect-ecu</a></p>
+<p>飞度的兼容性</p>
+<p><a href="https://obd2-elm327.com/elm327-compatible-cars?brand=Honda&amp;model=Honda%20Fit" target="_blank" rel="noopener">https://obd2-elm327.com/elm327-compatible-cars?brand=Honda&amp;model=Honda%20Fit</a></p>
+<p>协议格式：</p>
+<p><img src="/vx_images/128766926961840.png" alt=""></p>
+<p><img src="/vx_images/520583219143364.png" alt=""></p>
+<p>￼</p>
+<h1 id="4-OBD2-Test-modes"><a href="#4-OBD2-Test-modes" class="headerlink" title="4. OBD2 Test modes"></a>4. OBD2 Test modes</h1><ul>
+<li><p>The OBD2 test modes are common to all vehicles of different manufacturers. What this means is that no matter what vehicle is being tested or what OBD2 diagnostic equipment is being used, all the tests you need do will be done in the same way for any vehicle from any manufacturer.</p>
+</li>
+<li><p>Mode 1</p>
+</li>
+</ul>
+<p>Parameter identification (PID) is the access to real time data of analog or digital values ​​of outputs and inputs to the ECU. This mode is also called data flow. In this mode we can see, for example, the engine temperature, the voltage generated by a lambda probe, etc.</p>
+<ul>
+<li>Mode 2</li>
+</ul>
+<p>Access to frozen data table. This is a very useful function of OBD2 because the ECU takes a sample of all emission-related values ​​at the exact moment a fault occurs. In this way, when recovering this data, we will be able to know the exact conditions in which that failure occurred. There is only one data frame that corresponds to the first detected fault.</p>
+<ul>
+<li>Mode 3 </li>
+</ul>
+<p>This mode allows all DTC to be read from the ECU memory.</p>
+<ul>
+<li>Mode 4</li>
+</ul>
+<p>With this mode you can delete all codes stored in the PCM, including the DTCs and the frozen data box.</p>
+<ul>
+<li>Mode 5</li>
+</ul>
+<p>This mode returns the results of the tests performed to the oxygen sensors to determine their operation and the efficiency of the catalytic converter.</p>
+<ul>
+<li>Mode 6</li>
+</ul>
+<p>This mode allows to obtain the results of all on-board tests.</p>
+<ul>
+<li>Mode 7</li>
+</ul>
+<p>This mode allows all remaining DTC to be read from the ECU memory.</p>
+<ul>
+<li>Mode 8</li>
+</ul>
+<p>This mode allows you to test the actuators. With this function you can activate and deactivate actuators such as fuel pumps, idle valve, etc.</p>
+<h1 id="5-DTC-Diagnostic-Trouble-Codes"><a href="#5-DTC-Diagnostic-Trouble-Codes" class="headerlink" title="5. DTC - Diagnostic Trouble Codes"></a>5. DTC - Diagnostic Trouble Codes</h1><p><a href="https://obd2-elm327.com/dtc-fault-failure-codes" target="_blank" rel="noopener">https://obd2-elm327.com/dtc-fault-failure-codes</a></p>
+<p><img src="/vx_images/520813991910244.png" alt=""></p>
+<p><img src="/vx_images/239052420596886.png" alt=""></p>
+<p>03.诊断故障代码类型</p>
+<p>PXXXX：表明动力总成故障（发动机和变速箱ECU）</p>
+<p>UXXXX：表示网络通信故障</p>
+<p>BXXXX：表明车身电子系统故障</p>
+<p>CXXXX：表示底盘电子系统故障</p>
+<h1 id="6-飞度测试情况"><a href="#6-飞度测试情况" class="headerlink" title="6. 飞度测试情况"></a>6. 飞度测试情况</h1><p>今天我特地查了一下。。手机软件<code>Torque PRO</code> app 测试，故障码为0，有上面两个故障(催化剂，氧传感器)，未完成，我是把蓄电池断电过。。。咱下次行驶1个小时之后，再测试一下。。。</p>
+<p>如果手工删除了故障码后，一定车子要多开一下60公里。。</p>
+<p>否则，里面有</p>
+<ul>
+<li><code>Catalyst(催化器）</code>：未完成（<code>Incomplete</code>）   </li>
+<li><code>O2 Sensor (氧传感器）</code>：未完成（<code>Incomplete</code>）</li>
+</ul>
+<p>即使故障码为0， 也是不行的。</p>
+<p>就绪状态，未完成超过2项， 预热不够，充分预热重新上线（充分行驶60分钟以上），就是说的这个事情。</p>
+<p><code>Torque PRO</code> app 测试截图：</p>
+<ul>
+<li><p><code>未完成</code>的情况<br><img src="/vx_images/556574414636092.png" alt=""></p>
+</li>
+<li><p><code>完成</code>的情况:</p>
+</li>
+</ul>
+<p><img src="/vx_images/515105137961843.png" alt=""> </p>
+<h1 id="7-OBD检查和记录内容及结果"><a href="#7-OBD检查和记录内容及结果" class="headerlink" title="7. OBD检查和记录内容及结果"></a>7. OBD检查和记录内容及结果</h1><p><img src="/vx_images/302282278910248.png" alt=""></p>
+<p><img src="/vx_images/141042923289477.png" alt=""></p>
+<ul>
+<li><p>冷车时：O2 Sensor Heater (氧传感器加热）：未完成（Incomplete）<br><img src="/vx_images/273790807596890.png" alt=""></p>
+</li>
+<li><p>热车5分钟后，O2 Sensor Heater (氧传感器加热）：完成（Complete） 说明 温度要高，才算工作正常。<br><img src="/vx_images/226791606143368.png" alt=""></p>
+</li>
+</ul>
+<p>Catalyst(催化剂）：        未完成（Incomplete）<br>O2 Sensor (氧传感器加热）：未完成（Incomplete）<br>因为要熄火了，没有继续跟踪。</p>
+<p>故障指示器（MI）激活原则:</p>
+<ul>
+<li>3个驾驶循环<br>热车 – 行驶–熄火 为一个循环</li>
+</ul>
+<ul>
+<li>维修带有OBD系统的车辆，若<code>在维修过程中删除了故障代码</code>，或<code>对蓄电池断过电</code>，<code>应对车辆运行厂家制定的工况循环</code>，<code>使OBD系统的所有就绪状态值显示为完成后，才允许车辆离开</code>。维修服务机构不得在车辆未经维修的情况下，删除故障信息。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">有故障灯, 过不了</span><br><span class="line">无故障灯, 尾气超标 过不了</span><br><span class="line">故障灯闪烁, 过不了 估计有失火故障码</span><br><span class="line">就绪状态未完成超2项 预热不够 充分预热重新上线 （充分行驶60分钟以上）</span><br></pre></td></tr></table></figure>
+<h1 id="8-分析总结"><a href="#8-分析总结" class="headerlink" title="8. 分析总结"></a>8. 分析总结</h1><p><code>只要清除故障码麻烦就来了</code></p>
+<p>只要进行<code>清除发动机ECU任何故障码操作，麻烦就来了</code>，<code>会有几个部件进行就绪状态标为未完成</code>，必须按以下操作要求进行<code>充分行驶</code>。</p>
+<p><code>就绪状态</code></p>
+<p>自前一次由外部请求或命令清除故障信息后（例如通过OBD诊断仪），某一监测功能或一组监测功能是否运行的状态。自<code>最后一次由外部请求或命令（例如通过OBD诊断工具）清除故障信息后</code>，当该<code>就绪状态</code>所表示的一个监测功能或一组监测功能已经运行并<code>得出存在故障（即保存了一确认并激活的故障代码）</code>或者<code>不存在故障的结论后，此准备就绪状态应设置成“完成”</code>。</p>
+<p>通过由外部请求或命令（例如通过OBD诊断工具）<code>将故障代码删除</code>，准备就绪应设置为<code>“未完成”</code>。</p>
+<ul>
+<li>正常行驶1.8公里后，氧传感器(<code>O2 Sensor</code>)，就绪状态完成</li>
+<li>行驶11.5公里后，催化器(<code>Catalyst</code>)就绪状态完成 </li>
+<li>城市快速路行驶14公里<code>氧传感器加热</code>(<code>O2 Sensor Heater</code>)还未完成，准备放弃，<br>16.6公里，激活完成。 行驶时间大概有35分钟。</li>
+</ul>
+<ul>
+<li>冷车正常跑6.1公里，就可以激活所有状态了。</li>
+</ul>
+<p>底下发的图，是前一天冷车热车5分钟后，O2 Sensor Heater (氧传感器加热）：完成。 冷车更容易激活。</p>
+<p>总结</p>
+<p>1、<code>故障维修消码后，不能急着上线</code>。<br>2、<code>最好是从冷车怠速到热车完成</code>。<br>3、市区正常跑30分钟，个别转速达到3000<br>4、郊区路况跑30分钟<br>5、<code>中间最好熄火重启3次</code>。<br>6、建议维修跑几天，无亮灯后上线。<br>7、没有故障的小伙伴不用担心，激活完成后就不变了。</p>
+<h1 id="9-开始检OBD了，法系车备战OBD检测攻略二（就绪状态未完成）"><a href="#9-开始检OBD了，法系车备战OBD检测攻略二（就绪状态未完成）" class="headerlink" title="9. 开始检OBD了，法系车备战OBD检测攻略二（就绪状态未完成）"></a>9. 开始检OBD了，法系车备战OBD检测攻略二（就绪状态未完成）</h1><p>参考： 这篇文章，<br><a href="https://club.autohome.com.cn/bbs/thread/323dce6f65f68395/85091954-1.html" target="_blank" rel="noopener">https://club.autohome.com.cn/bbs/thread/323dce6f65f68395/85091954-1.html</a></p>
+<p><code>开始检OBD了，维修师傅不愿意修的法系车迎检攻略</code><br><a href="https://club.autohome.com.cn/bbs/thread/5c4a742df2a36d95/85017741-1.html" target="_blank" rel="noopener">https://club.autohome.com.cn/bbs/thread/5c4a742df2a36d95/85017741-1.html</a></p>
+<p><code>开始检OBD了，维修师傅不愿意修的法系车迎检攻略二（就绪状态）</code><br><a href="https://club.autohome.com.cn/bbs/thread/9b741bc079c37370/85091941-1.html" target="_blank" rel="noopener">https://club.autohome.com.cn/bbs/thread/9b741bc079c37370/85091941-1.html</a></p>
+<p><img src="/vx_images/242993754957712.png" alt=""></p>
+<h1 id="10-排放限值和要求"><a href="#10-排放限值和要求" class="headerlink" title="10. 排放限值和要求"></a>10. 排放限值和要求</h1><p><img src="/vx_images/123634796922038.png" alt=""></p>
+<h1 id="11-OBD终端软件-民用"><a href="#11-OBD终端软件-民用" class="headerlink" title="11. OBD终端软件- 民用"></a>11. OBD终端软件- 民用</h1><p><img src="/vx_images/520603392543578.png" alt=""></p>
+<p><img src="/vx_images/274864603669414.png" alt=""></p>
+<p>其他软件 torque<br>专用OBD 优驾 图吧</p>
+<p><img src="/vx_images/552324750569954.png" alt=""></p>
+<ul>
+<li>蓝牙OBD软件<code>TORQUE</code>，<code>车况检测大师</code>都支持<code>删除发动机故障码</code>，对OBD检测够用了。但BSI 变速箱等故障码需要专用检测仪。</li>
+</ul>
+<h1 id="12-故障相关部件"><a href="#12-故障相关部件" class="headerlink" title="12. 故障相关部件"></a>12. 故障相关部件</h1><p><img src="/vx_images/284685538772356.png" alt=""></p>
+<p><img src="/vx_images/586535171377120.png" alt=""></p>
+<h1 id="13-就绪状态，未完成"><a href="#13-就绪状态，未完成" class="headerlink" title="13. 就绪状态，未完成"></a>13. 就绪状态，未完成</h1><p><img src="/vx_images/337064915289480.png" alt=""></p>
+<p>obd检测值就绪状态，未完成，目前超过三项就不合格。</p>
+<p>本田小飞度，经常断电的话， 这些保存的状态，会丢失， 自然就是未完成状态。</p>
+<p>要想就绪状态未完成， 必须完成车辆的，驾驶循环(drive cycle).</p>
+<p>要<code>高速驾驶30分钟</code>, 催化器，氧传感器，这两个比较难的项目，就搞定了。</p>
+<p><img src="/vx_images/554815197847003.png" alt=""></p>
+<h1 id="14-飞度怎么完成《驾驶循环》-完成状态就绪"><a href="#14-飞度怎么完成《驾驶循环》-完成状态就绪" class="headerlink" title="14. 飞度怎么完成《驾驶循环》,完成状态就绪"></a>14. 飞度怎么完成《驾驶循环》,完成状态就绪</h1><ol>
+<li>冷启动， 点火关闭至少一小时。 飞度油箱： 1/4 - 3/4之间，</li>
+</ol>
+<p>温度：冷却液温度小于30度</p>
+<ol start="2">
+<li>怠速状态： 启动发动机（不行驶），<code>怠速2.5 分钟</code>， 同时<code>空调，后视镜加热打开</code></li>
+</ol>
+<ol start="3">
+<li><p>行驶： 关闭<code>空调，后视镜加热</code>， 加速 88km/h,  保持此速度，<code>行驶 3分钟</code></p>
+</li>
+<li><p>减速： 放开油门踏板， 不要刹车/换挡，滑行，让速度下降到 32km/h.</p>
+</li>
+</ol>
+<ol start="5">
+<li><p>加速： 3/4油门开度，加速到 88km/h， 保持速度，<code>行驶 5分钟</code>, 这里会完成催化器监控。</p>
+</li>
+<li><p>减速： 放开油门踏板， 不要刹车/换挡，滑行， 让速度下降到 32km/h.</p>
+</li>
+</ol>
+<p>如果电瓶断电的话，可能要，<code>加速-减速重复5次</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">核心：</span><br><span class="line"></span><br><span class="line">88km/h 保持3/5分钟， 然后，丢油门速度降到32， 反复5次左右。</span><br><span class="line"></span><br><span class="line">转速基本 2000转以上。</span><br></pre></td></tr></table></figure>
+<p><img src="/vx_images/86092407636095.png" alt=""></p>
+<p><img src="/vx_images/41953230961846.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+     
+         <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+     
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    hawk
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://hawkinchina.github.io/2024/12/03/汽车驾驶/飞度的OBD接口/" title="飞度OBD检测">https://hawkinchina.github.io/2024/12/03/汽车驾驶/飞度的OBD接口/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/obd/" rel="tag"><i class="fa fa-tag"></i> obd</a>
+          
+            <a href="/tags/飞度/" rel="tag"><i class="fa fa-tag"></i> 飞度</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/02/27/Readme/" rel="next" title="README">
+                <i class="fa fa-chevron-left"></i> README
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2024/12/25/英语学习/怎么练好英语口语/" rel="prev" title="怎么练习好英语口语">
+                怎么练习好英语口语 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+       <div id="utterance-container"></div>
+    </div>
+
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/jack.jpg" alt="hawk">
+            
+              <p class="site-author-name" itemprop="name">hawk</p>
+              <p class="site-description motion-element" itemprop="description">记录平时学习阅读笔记以及搜集到的好的文章</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hawkinchina" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.sqlsec.com" title="国光" target="_blank">国光</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://daliansky.github.io" title="黑果小兵" target="_blank">黑果小兵</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zhaojun.im/" title="赵俊java" target="_blank">赵俊java</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://shansan.top/" title="shansan" target="_blank">shansan</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-飞度的OBD2接口"><span class="nav-number">1.</span> <span class="nav-text">1. 飞度的OBD2接口</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-OBD2-Software"><span class="nav-number">2.</span> <span class="nav-text">2. OBD2 Software</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-ELM327-Compatibility"><span class="nav-number">3.</span> <span class="nav-text">3. ELM327 Compatibility</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-OBD2-Test-modes"><span class="nav-number">4.</span> <span class="nav-text">4. OBD2 Test modes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-DTC-Diagnostic-Trouble-Codes"><span class="nav-number">5.</span> <span class="nav-text">5. DTC - Diagnostic Trouble Codes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-飞度测试情况"><span class="nav-number">6.</span> <span class="nav-text">6. 飞度测试情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-OBD检查和记录内容及结果"><span class="nav-number">7.</span> <span class="nav-text">7. OBD检查和记录内容及结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-分析总结"><span class="nav-number">8.</span> <span class="nav-text">8. 分析总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-开始检OBD了，法系车备战OBD检测攻略二（就绪状态未完成）"><span class="nav-number">9.</span> <span class="nav-text">9. 开始检OBD了，法系车备战OBD检测攻略二（就绪状态未完成）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-排放限值和要求"><span class="nav-number">10.</span> <span class="nav-text">10. 排放限值和要求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-OBD终端软件-民用"><span class="nav-number">11.</span> <span class="nav-text">11. OBD终端软件- 民用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-故障相关部件"><span class="nav-number">12.</span> <span class="nav-text">12. 故障相关部件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-就绪状态，未完成"><span class="nav-number">13.</span> <span class="nav-text">13. 就绪状态，未完成</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-飞度怎么完成《驾驶循环》-完成状态就绪"><span class="nav-number">14.</span> <span class="nav-text">14. 飞度怎么完成《驾驶循环》,完成状态就绪</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hawk</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">11.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.setAttribute("issue-term","title"),e.setAttribute("theme","github-light"),e.setAttribute("repo","hawkinchina/hawkinchina.github.io"),e.crossorigin="anonymous",e.src="https://utteranc.es/client.js",document.getElementById("utterance-container").appendChild(e)}()</script>
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[cheat命令]]></title>
+    <url>%2F2024%2F12%2F31%2Fcheat%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1. cheat命令cheat命令怎么安装和使用 1brew install cheat cheat命令简单来说，就是告诉你一个命令如何使用。它没有提供其他额外多余的信息，只通过使用实例告诉你一个命令如何使用。 1.1. 查看哪些命令可以用cheat1cheat -l | less 1.2. 输出颜色高亮编辑配置文件： .config/cheat/conf.yml 1234567891011121314151617181920212223242526272829303132333435# conf.yml:# ...# Should 'cheat' always colorize output?colorize: true# Which 'chroma' colorscheme should be applied to the output?# Options are available here:# https://github.com/alecthomas/chroma/tree/master/styles# style: monokaistyle: solarized-dark# Which 'chroma' "formatter" should be applied?# One of: "terminal", "terminal256", "terminal16m"formatter: terminal256cheatpaths: - name: github # a name for the cheatpath path: ~/cheat_files/awesome-cheatsheets # the path's location on the filesystem tags: [ github ] # these tags will be applied to all sheets on the path readonly: true # if true, `cheat` will not create new cheatsheets here - name: dev # a name for the cheatpath path: ~/cheat_files/cheatsheets # the path's location on the filesystem tags: [ dev ] # these tags will be applied to all sheets on the path readonly: true # if true, `cheat` will not create new cheatsheets here # - name: personal # path: ~/documents/cheat/personal # this is a separate directory and repository than above # tags: [ personal ] # readonly: false # new sheets may be written here# ... 1.3. 带tags 查询cheat12345cheat -l -t github # 带tag查询cheat -l -t dev # 带tag查询cheat -l |grep html # 过滤查询]]></content>
+      <categories>
+        <category>CLI</category>
+      </categories>
+      <tags>
+        <tag>cheat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo文件结构]]></title>
+    <url>%2F2024%2F12%2F30%2FHexo%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[blog文件目录12345678|-- _config.yml |-- package.json |-- scaffolds |-- source |-- _posts |-- public |-- themes |-- .gitignore _config.yml网站的全局配置文件，设置包括网站标题、副标题、作者、关键字和描述信息等，参照配置|Hexo。 node_modulesnode_modules存储Hexo需要的其他node.js模块，以后安装的hexo相关模块也放在这里。框架的基本参数信息和它所依赖的插件，在 npm 安装时使用 –save 保存进去。 package.jsonpackage.json用来查看Hexo的版本以及相关依赖包的版本。 Hexo会默认安装： hexo：主程序 hexo-deployer-git：实现git部署方式 hexo-generator-archive：存档页面生成器 hexo-generator-category：分类页面生成器 hexo-generator-index：index生成器 hexo-generator-tag：标签页面生成器 hexo-renderer-ejs：支持EJS渲染 hexo-renderer-marked：Markdown引擎 hexo-renderer-stylus：支持stylus渲染，主题需要 hexo-server：支持本地预览，默认地址 localhost:4000 新安装的依赖包，也会保存在node_module文件夹下。 scaffold本意是 “脚手架” 的意思，这里引申为模板文件夹，包含page，post，draft三种模板，分别对应 页面、要发布的文章、草稿。当你 hexo new &lt;layout(布局)&gt; &lt;title&gt;的时候，Hexo 会根据该文件夹下的对应文件进行初始化构建。 themes主题文件夹，存储主题。每一个主题，都有一个单独的文件夹。默认主题为landscape，其它主题可以在 Github 上免费下载使用。 这里值得注意的是，Hexo配置文件中的language**参数**的值，取决于每个主题文件夹（如landscape）下的language**文件夹**里的文件名。 sourcesource：资源文件夹。存储直接来自用户的文件, 用来存放图片、Markdown文档（文章、草稿）、各种页面（分类、关于页面等）。 source/_posts ：默认source文件夹下只有一个_post文件夹，存放文章的markdown源文件，_posts 目录下的md文件，会被编译成 html 文件，放到 public 文件夹下。每个页面有一个以该页面命名的文件夹，也存放在source文件夹下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。 source/_discarded:删除的博客存放在这里。 source/categories: 分类文件夹，有index.md文件，由hexo new page categories生成。 source/tags: 由hexo new page tags生成的标签文件夹，内自动生成index.md publicpublic文件夹是hexo g 编译生成静态文件后自动生成的。将source文件夹里的Markdown文档，转换成index.html。再结合主题进行渲染成我们最终看到的博客。hexo clean会清除 db.json 和 public 文件夹下的所有文件。 deploy_git.deploy_git：将public文件夹的内容提交到Github后生成，内容与public文件夹基本一致, 本人还没试过。 关系大致是：source -&gt; public -&gt; .deploy_git 执行hexo generate，根据source，更新 public。执行hexo deploy，根据public，更新 .deploy_git。]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[QEMU-仿真模拟STM32F103开发版]]></title>
+    <url>%2F2024%2F12%2F30%2Fstm32%2FQEMU-%E4%BB%BF%E7%9C%9F%E6%A8%A1%E6%8B%9FSTM32F103%E5%BC%80%E5%8F%91%E6%9D%BF%2F</url>
+    <content type="text"><![CDATA[1. QEMU-仿真模拟 STM32F103 开发板https://www.cnblogs.com/asmer/p/16813129.html QEMU 是一款开源虚拟机, 可以用来模拟各种系统开发板, 当然也可以用来模拟 stm32 的开发板 QEMU 官方说明文档在此 https://www.qemu.org/docs/master/system/arm/stm32.html不过我们使用的并不是官方的版本, 而是别人魔改的一个版本, 用 QEMU 模拟 STM32 这事很多人干过, 1.1. 安装代码地址：https://xpack.github.io/qemu-arm/ 下载地址： https://github.com/xpack-dev-tools/qemu-arm-xpack/releases/tag/v8.2.6-1 因为兼容性问题, 后期可能还会再维护一段时间, 如果下载的文件没有这个版本, 大概率说明这个版本已经撤销了, 文章关了, 可以退出了… 这里模拟的开发板是 STM32-Bluepill(STM32F103), 也就是淘宝拼多多上销量最高的那款, 似乎都有些修改, 不过都是大同小异. 1.2. 使用方式到 qemu-system-gnuarmeclipse 所在的文件夹, 打开命令行或者 1qemu-system-gnuarmeclipse --board BluePill --image 你的stm32程序文件路径.elf 主要用到两个参数, --board 是设置开发板类型, --image 是设置 elf 程序文件. 需要注意这两个命令 官方的 QEMU 都是不支持的. 我这里烧录的程序是控制 PC13 亮灭的, BluePill 开发板 PC13 连的是一个 led 灯. 代码是用 arm-none-eabi-gcc 编译的. 工程代码： 123456789101112131415161718192021222324252627282930#include "stm32f10x.h" #define LED_PERIPH ((uint32_t)0x00000010)#define LED_PORT ((GPIO_TypeDef *) GPIOC_BASE)#define LED_PIN GPIO_Pin_13 void delay(int x)&#123; for (int i = 0; i &lt; x; i++) &#123; for (int j = 0; j &lt; 1000; j++) __NOP(); &#125;&#125; int main()&#123; GPIO_InitTypeDef gpioDef; RCC_APB2PeriphClockCmd(LED_PERIPH, ENABLE); gpioDef.GPIO_Mode = GPIO_Mode_Out_PP; gpioDef.GPIO_Pin = LED_PIN; gpioDef.GPIO_Speed = GPIO_Speed_10MHz; GPIO_Init(LED_PORT, &amp;gpioDef); while (1) &#123; GPIO_WriteBit(LED_PORT, LED_PIN, (BitAction)!GPIO_ReadInputDataBit(LED_PORT, LED_PIN)); delay(1000); &#125;&#125; 执行效果如图所示: 软件还做了点动画效果, 这个灯确实能一闪一闪的 1.3. GDB 调试如果需要使用 GDB 调试的话需要添加两个参数 -S -s 1qemu-system-gnuarmeclipse -S -s --board BluePill --image 你的stm32程序文件路径.elf 之后启动 GDB 连接 1234 这个端口, 然后设置文件. 12tar remote localhost:1234file 你的stm32程序文件路径.elf 之后就可以愉快的进行调试了. 1.4. 使用 VScode 调试GDB 命令行使用不方便的话也可以用 VScode 的机制进行调试, 实际上也是使用的 GDB, 只不过是有了图形界面会方便点.添加 json 调试配置文件. 1234567891011121314151617181920&#123; "version": "0.2.0", "configurations": [ &#123; "name": "stm32调试", "type": "cppdbg", "request": "launch", "program": "$&#123;workspaceFolder&#125;/build/Debug/$&#123;workspaceFolderBasename&#125;.elf", "args": [], "stopAtEntry": false, "cwd": "$&#123;fileDirname&#125;", "environment": [], "externalConsole": false, "MIMode": "gdb", // 这里是我的 gdb 路径 "miDebuggerPath": "C:/Users/Qu/.eide/tools/gcc_arm/bin/arm-none-eabi-gdb.exe", "miDebuggerServerAddress": "localhost:1234", &#125; ]&#125; 2. 下载stm32-p103这个板子的各种demo程序去github下载stm32-p103这个板子的各种demo程序，https://github.com/beckus/stm32_p103_demos （对了顺便说一下，这个的qume的串口输出不到控制台，原作者自己也说了不知道为什么，而且多个博客也看到有人说printf无效的。想输出到控制台，可以看我别的qemu文章，你一定会有收获的） 3. STM32 Blue Pill — Unit Testing with Qemu Blue Pill EmulatorSTM32 Blue Pill — Unit Testing with Qemu Blue Pill Emulator 4. STM32 Blue Pill三路USB转串口适配器固件指南旨在为STM32F103C8T6“蓝药片”最小开发板提供一个三合一的USB转串口适配器固件。 bluepill-serial-monster is a firmware for STM32 Blue Pill that turns it into a 3 Port USB-to-Serial adapter. The firmware implements a USB 2.0 full-speed composite device that consists of 3 USB CDC devices. 4.1. Featuresgithub 3 independent UART ports; Hardware flow control (RTS/CTS) support1; DSR/DTR/DCD/RI signals support; 7 or 8 bit word length; None, even, odd parity; 1, 1.5, and 2 stop bits; Works with CDC Class drives on Linux, macOS, and Windows; Supports all baud rates up to 2 MBaud; TXA signal for controlling RS-485 transceivers (DE, /RE); DMA RX/TX for high-speed communications; IDLE line detection for short response time; Signed INF driver for Windows XP, 7, and 8; Built-in command shell for device parameters configuration; No external dependencies other than CMSIS; DFU Bootloaders Compartible (see the FIRMWARE_ORIGIN option); (1) UART1 does not support CTS because it is occupied by USB (PA11) and cannot be remapped. RTS can still be used. 5. qemu的详细资料大全（入门必看！！！）https://blog.csdn.net/kangkanglhb88008/article/details/126299695 https://xpack.github.io/dev-tools/qemu-arm/options/ qemu printf问题 这儿讲了这个qemu-system-gnuarmeclipse.exe命令行选项的详细使用 （是qemu官方版选项的子集，针对stm32有些特定的选项了）The GNU MCU Eclipse QEMU command line options | The xPack Build Framework]]></content>
+      <categories>
+        <category>STM32</category>
+      </categories>
+      <tags>
+        <tag>QEMU</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo是怎么工作的]]></title>
+    <url>%2F2024%2F12%2F30%2Fhexo%E6%98%AF%E6%80%8E%E4%B9%88%E5%B7%A5%E4%BD%9C%E7%9A%84%2F</url>
+    <content type="text"><![CDATA[你可能用过hexo(或者jekyll)来搭建自己的博客网站。通常我们在安装、配置完成hexo之后，借助hexo，一般通过以下步骤，就可以完成一篇博客的编写及发布，真是方便极了： 12345$ hexo init // 创建一个新的hexo项目$ hexo new mynewblog // 新建一篇标题为mynewblog的文章$ hexo server // 为hexo在本地起一个http server, 然后通过浏览器访问博客$ hexo generate // 生成将要发布的博客网站包含html在内的静态资源$ hexo deploy // 将generate的结果发布到_config.yml中指定的仓库 可是，从hexo init到hexo deploy中间发生了什么呢？为了搞清楚这一过程、理解hexo的工作原理，本文将试着回答以下问题: • 命令行中的hexo是什么• hexo是怎么将我们写好的markdown转换成html的• hexo插件是如何工作的• 本地的hexo项目和git page有什么关系 具体详细见： https://buildall.github.io/2017/08/20/howhexoworks/]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo NexT 主题使用 utterances 搭建评论系统]]></title>
+    <url>%2F2024%2F12%2F29%2FHexo-NexT-%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8-utterances-%E6%90%AD%E5%BB%BA%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%2F</url>
+    <content type="text"><![CDATA[在 Hexo NexT 中使用在 Hexo NexT 中使用我的 NexT 版本是 5.1.4，不知道最新的版本有没有集成 utterances ，如果有一般在主题配置文件中添加相关 utterances 配置即可。但我使用 5.1.4 版本没有集成，需要修改NexT的布局文件，不然单添加配置不会在页面中看到效果的。 几个重要步骤： 编辑 Hexo 主题配置文件 _config.yml，添加以下配置123456789# 整合 utterances 评论utterance: enable: true # 仓库名字，格式：[user-name]/[repo-name]，如：lanweihong/utterance_repo repo: xxx/yyy # 主题 theme: github-light # 映射配置 issue_term: pathname 在主题的 layout/_third-party/comments 目录中添加 utterance.swig文件：12345&#123;% if theme.utterance and theme.utterance.enable %&#125;&lt;script type=&quot;text/javascript&quot;&gt;!function()&#123;var e=document.createElement(&quot;script&quot;);e.type=&quot;text/javascript&quot;,e.async=!0,e.setAttribute(&quot;issue-term&quot;,&quot;&#123;&#123; theme.utterance.issue_term &#125;&#125;&quot;),e.setAttribute(&quot;theme&quot;,&quot;&#123;&#123; theme.utterance.theme &#125;&#125;&quot;),e.setAttribute(&quot;repo&quot;,&quot;&#123;&#123; theme.utterance.repo &#125;&#125;&quot;),e.crossorigin=&quot;anonymous&quot;,e.src=&quot;https://utteranc.es/client.js&quot;,document.getElementById(&quot;utterance-container&quot;).appendChild(e)&#125;()&lt;/script&gt;&#123;% endif %&#125; 编辑 layout/_third-party/comments/index.swig，添加以下配置加入 utterance.swig 文件：1&#123;% include &apos;utterance.swig&apos; %&#125; 编辑 layout/_partials/comments.swig 文件，在最后加入以下内容，配置存放评论的 dom 元素：1234&#123;% elseif theme.utterance.enable %&#125; &lt;div class=&quot;comments&quot; id=&quot;comments&quot;&gt; &lt;div id=&quot;utterance-container&quot;&gt;&lt;/div&gt; &lt;/div&gt; 参考： https://blog.lanweihong.com/posts/24011/]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[How to Install Pyenv on MacOS]]></title>
+    <url>%2F2024%2F12%2F27%2FHow-to-Install-Pyenv-on-MacOS%2F</url>
+    <content type="text"><![CDATA[How to Install Pyenv on MacOSThere are a few ways on MacOS to install Python. You can install it via Brew, or by using Pyenv. After needing to switch between different versions of Python often I’ve decided to move to Pyenv. Prior to these steps I removed all versions of Python installed directly with Brew. Update Brew and install prerequisitesWe will need to update brew. 1brew update In some cases when installing Python &gt;=3.12.1 we will need ncurses. If it’s missing you can install using: 1brew install ncurses Install Pyenv using brewThe recommended way to install pyenv on MacOS is brew. 1brew install pyenv Brew doctor fixIf you want to avoid brew doctor warning about “config” scripts existing outside the system or Homebrew directories please include the following in your shell. 1alias brew='env PATH="$&#123;PATH//$(pyenv root)\/shims:/&#125;" brew' Configure your Zsh profile.123echo 'export PYENV_ROOT="$HOME/.pyenv"' &gt;&gt; ~/.zshrcecho '[[ -d $PYENV_ROOT/bin ]] &amp;&amp; export PATH="$PYENV_ROOT/bin:$PATH"' &gt;&gt; ~/.zshrcecho 'eval "$(pyenv init -)"' &gt;&gt; ~/.zshrc If you wish to use Pyenv in non-interactive shells, add the following: 123echo 'export PYENV_ROOT="$HOME/.pyenv"' &gt;&gt; ~/.zprofileecho '[[ -d $PYENV_ROOT/bin ]] &amp;&amp; export PATH="$PYENV_ROOT/bin:$PATH"' &gt;&gt; ~/. zprofileecho 'eval "$(pyenv init -)"' &gt;&gt; ~/.zprofile Restart shell1exec "$SHELL" Install python 3.12I am going to show how to install python 3.12 but you can select any version of your choice. 1pyenv install 3.12 Switch between your python versions12345pyenv shell &lt;version&gt; – modifies python for the current shell sessionpyenv local &lt;version&gt; – modifies the python used in the current directory (or subdirectories)pyenv global &lt;version&gt; – modifies the python used for your user account]]></content>
+      <categories>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vim查询快捷键是否已被使用]]></title>
+    <url>%2F2024%2F12%2F26%2Fvim%E6%9F%A5%E8%AF%A2%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%98%AF%E5%90%A6%E5%B7%B2%E8%A2%AB%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[vim查询快捷键是否已被使用 按:进入vim的命令行模式，然后输入verbose map ，其中即为你要查询的按键。 例子：verbose map]]></content>
+      <categories>
+        <category>vim</category>
+      </categories>
+      <tags>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何解决coc.nvim下载超时的问题]]></title>
+    <url>%2F2024%2F12%2F26%2F%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3coc-nvim%E4%B8%8B%E8%BD%BD%E8%B6%85%E6%97%B6%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[如何解决coc.nvim下载超时的问题如何解决coc.nvim下载超时的问题原讨论：https://github.com/neoclide/coc.nvim/discussions/4829 原因 问题很简单，是由npm官方服务器在大陆地区速度慢导致超时。 解决 coc.nvim:registry=https://registry.npmmirror.com 上面代码放在~/.npmrc中 原理 如果仅仅改变npm的默认源，那么coc.nvim仍然会用默认源。以上代码可以让coc.nvim使用国内的镜像源。]]></content>
+      <categories>
+        <category>vim</category>
+      </categories>
+      <tags>
+        <tag>coc-nvim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[新概念英语学习]]></title>
+    <url>%2F2024%2F12%2F25%2F%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%2F%E6%96%B0%E6%A6%82%E5%BF%B5%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[1. 新概念英语学习资料： http://www.newconceptenglish.com/index.php 1.1. lesson_11.1.1. words and expressions. private: adj, a private conversation. theatre: go to the theatre, pay attention: didnot pay any attention, got angry: I got very angry. turn round: = turn around. bear: bear/bore/born, I could not bear it. none of your business: It’s none of your business.]]></content>
+      <categories>
+        <category>英语学习</category>
+      </categories>
+      <tags>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[怎么练习好英语口语]]></title>
+    <url>%2F2024%2F12%2F25%2F%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%2F%E6%80%8E%E4%B9%88%E7%BB%83%E5%A5%BD%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD%2F</url>
+    <content type="text"><![CDATA[https://www.zhihu.com/question/20097263/answer/469795348 1. BBC官方发音教程合集（口型模仿）https://v.qq.com/x/page/w0146n8467c.html 2. 正常口语学习的阶段Open your mouth Mean what you say Say what you mean Express yourself 雅思口语满分经验+学习方法论（官方批卷人）Rosshttps://zhuanlan.zhihu.com/p/24740400 3. 方法横向模块】 可以把口语能力的提升归结为三个模块的内容1.语音 （语音的训练） 词汇-句型--想法（对话的流畅和拓展）3 语料的积累（产生自己想法之前需要先有一定积累）最后达到“口腔肌肉习惯记忆=脱口而出” 【语音的训练】 第一周&amp;第二周（先学习教材，再熟悉语音标记，然后开始跟读练习） 使用教材:英语在用（语音在用）初级-音标&amp;音素，中级-语音技巧，高级-语调&amp;语气 3.1. 1.纠音练习：使用教材和口型模仿素材纠音，第二周跟读160句英语的语音分成pronunciation（发音）和pronunciation features（语音技巧）练习发音的核心是通过不同感官的辅助（眼，耳）帮助口腔肌肉养成发音习惯 第一周 里我们需要使用【教材】和【口型模仿视频】来纠正pronunciation，眼的辅助是指通过观察口型细节纠音，耳的辅助是指通过声音辨析去微调纠音 只有眼和耳的搭配才能达到最好的效果，正如我们从刚出生之日起学习中文发音一样。除此之外，还需纠正不同单词的发音，比如牛津160句作为前2周跟读素材中的单词发音，需要查字典，看音标，纠音。 3.2. 2语音标记（每天5句话，进行语音标记并从小到大【逐词，逐短语，逐句】进行跟读练习，次数不限，最好可以脱口而出）语音标记内容：连读，失去爆破，重读，停顿，语调 3.3. 第三&amp;四&amp;五&amp;六周【词汇-句型-*-想法（对话的流畅和拓展）】 3.4. 第三&amp;四&amp;五&amp;六&amp;七&amp;八周【语料的积累】同步于造句练习所需材料：任何一部生活化美剧英剧，如老友记第一季]]></content>
+      <categories>
+        <category>英语学习</category>
+      </categories>
+      <tags>
+        <tag>英语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[飞度OBD检测]]></title>
+    <url>%2F2024%2F12%2F03%2F%E6%B1%BD%E8%BD%A6%E9%A9%BE%E9%A9%B6%2F%E9%A3%9E%E5%BA%A6%E7%9A%84OBD%E6%8E%A5%E5%8F%A3%2F</url>
+    <content type="text"><![CDATA[1. 飞度的OBD2接口 2. OBD2 Softwarehttps://obd2-elm327.com/obd2-software-programs-applications-apps Generally I always recommend the same aplication for each system. For windows the best option is ScanMaster, for iOs is the DashCommand app and for Android is the Torque PRO app. http://www.ydobd.com/index.html 3. ELM327 Compatibilityhttps://obd2-elm327.com/obd2-elm327-can-not-connect-ecu 飞度的兼容性 https://obd2-elm327.com/elm327-compatible-cars?brand=Honda&amp;model=Honda%20Fit 协议格式： ￼ 4. OBD2 Test modes The OBD2 test modes are common to all vehicles of different manufacturers. What this means is that no matter what vehicle is being tested or what OBD2 diagnostic equipment is being used, all the tests you need do will be done in the same way for any vehicle from any manufacturer. Mode 1 Parameter identification (PID) is the access to real time data of analog or digital values ​​of outputs and inputs to the ECU. This mode is also called data flow. In this mode we can see, for example, the engine temperature, the voltage generated by a lambda probe, etc. Mode 2 Access to frozen data table. This is a very useful function of OBD2 because the ECU takes a sample of all emission-related values ​​at the exact moment a fault occurs. In this way, when recovering this data, we will be able to know the exact conditions in which that failure occurred. There is only one data frame that corresponds to the first detected fault. Mode 3 This mode allows all DTC to be read from the ECU memory. Mode 4 With this mode you can delete all codes stored in the PCM, including the DTCs and the frozen data box. Mode 5 This mode returns the results of the tests performed to the oxygen sensors to determine their operation and the efficiency of the catalytic converter. Mode 6 This mode allows to obtain the results of all on-board tests. Mode 7 This mode allows all remaining DTC to be read from the ECU memory. Mode 8 This mode allows you to test the actuators. With this function you can activate and deactivate actuators such as fuel pumps, idle valve, etc. 5. DTC - Diagnostic Trouble Codeshttps://obd2-elm327.com/dtc-fault-failure-codes 03.诊断故障代码类型 PXXXX：表明动力总成故障（发动机和变速箱ECU） UXXXX：表示网络通信故障 BXXXX：表明车身电子系统故障 CXXXX：表示底盘电子系统故障 6. 飞度测试情况今天我特地查了一下。。手机软件Torque PRO app 测试，故障码为0，有上面两个故障(催化剂，氧传感器)，未完成，我是把蓄电池断电过。。。咱下次行驶1个小时之后，再测试一下。。。 如果手工删除了故障码后，一定车子要多开一下60公里。。 否则，里面有 Catalyst(催化器）：未完成（Incomplete） O2 Sensor (氧传感器）：未完成（Incomplete） 即使故障码为0， 也是不行的。 就绪状态，未完成超过2项， 预热不够，充分预热重新上线（充分行驶60分钟以上），就是说的这个事情。 Torque PRO app 测试截图： 未完成的情况 完成的情况: 7. OBD检查和记录内容及结果 冷车时：O2 Sensor Heater (氧传感器加热）：未完成（Incomplete） 热车5分钟后，O2 Sensor Heater (氧传感器加热）：完成（Complete） 说明 温度要高，才算工作正常。 Catalyst(催化剂）： 未完成（Incomplete）O2 Sensor (氧传感器加热）：未完成（Incomplete）因为要熄火了，没有继续跟踪。 故障指示器（MI）激活原则: 3个驾驶循环热车 – 行驶–熄火 为一个循环 维修带有OBD系统的车辆，若在维修过程中删除了故障代码，或对蓄电池断过电，应对车辆运行厂家制定的工况循环，使OBD系统的所有就绪状态值显示为完成后，才允许车辆离开。维修服务机构不得在车辆未经维修的情况下，删除故障信息。 1234有故障灯, 过不了无故障灯, 尾气超标 过不了故障灯闪烁, 过不了 估计有失火故障码就绪状态未完成超2项 预热不够 充分预热重新上线 （充分行驶60分钟以上） 8. 分析总结只要清除故障码麻烦就来了 只要进行清除发动机ECU任何故障码操作，麻烦就来了，会有几个部件进行就绪状态标为未完成，必须按以下操作要求进行充分行驶。 就绪状态 自前一次由外部请求或命令清除故障信息后（例如通过OBD诊断仪），某一监测功能或一组监测功能是否运行的状态。自最后一次由外部请求或命令（例如通过OBD诊断工具）清除故障信息后，当该就绪状态所表示的一个监测功能或一组监测功能已经运行并得出存在故障（即保存了一确认并激活的故障代码）或者不存在故障的结论后，此准备就绪状态应设置成“完成”。 通过由外部请求或命令（例如通过OBD诊断工具）将故障代码删除，准备就绪应设置为“未完成”。 正常行驶1.8公里后，氧传感器(O2 Sensor)，就绪状态完成 行驶11.5公里后，催化器(Catalyst)就绪状态完成 城市快速路行驶14公里氧传感器加热(O2 Sensor Heater)还未完成，准备放弃，16.6公里，激活完成。 行驶时间大概有35分钟。 冷车正常跑6.1公里，就可以激活所有状态了。 底下发的图，是前一天冷车热车5分钟后，O2 Sensor Heater (氧传感器加热）：完成。 冷车更容易激活。 总结 1、故障维修消码后，不能急着上线。2、最好是从冷车怠速到热车完成。3、市区正常跑30分钟，个别转速达到30004、郊区路况跑30分钟5、中间最好熄火重启3次。6、建议维修跑几天，无亮灯后上线。7、没有故障的小伙伴不用担心，激活完成后就不变了。 9. 开始检OBD了，法系车备战OBD检测攻略二（就绪状态未完成）参考： 这篇文章，https://club.autohome.com.cn/bbs/thread/323dce6f65f68395/85091954-1.html 开始检OBD了，维修师傅不愿意修的法系车迎检攻略https://club.autohome.com.cn/bbs/thread/5c4a742df2a36d95/85017741-1.html 开始检OBD了，维修师傅不愿意修的法系车迎检攻略二（就绪状态）https://club.autohome.com.cn/bbs/thread/9b741bc079c37370/85091941-1.html 10. 排放限值和要求 11. OBD终端软件- 民用 其他软件 torque专用OBD 优驾 图吧 蓝牙OBD软件TORQUE，车况检测大师都支持删除发动机故障码，对OBD检测够用了。但BSI 变速箱等故障码需要专用检测仪。 12. 故障相关部件 13. 就绪状态，未完成 obd检测值就绪状态，未完成，目前超过三项就不合格。 本田小飞度，经常断电的话， 这些保存的状态，会丢失， 自然就是未完成状态。 要想就绪状态未完成， 必须完成车辆的，驾驶循环(drive cycle). 要高速驾驶30分钟, 催化器，氧传感器，这两个比较难的项目，就搞定了。 14. 飞度怎么完成《驾驶循环》,完成状态就绪 冷启动， 点火关闭至少一小时。 飞度油箱： 1/4 - 3/4之间， 温度：冷却液温度小于30度 怠速状态： 启动发动机（不行驶），怠速2.5 分钟， 同时空调，后视镜加热打开 行驶： 关闭空调，后视镜加热， 加速 88km/h, 保持此速度，行驶 3分钟 减速： 放开油门踏板， 不要刹车/换挡，滑行，让速度下降到 32km/h. 加速： 3/4油门开度，加速到 88km/h， 保持速度，行驶 5分钟, 这里会完成催化器监控。 减速： 放开油门踏板， 不要刹车/换挡，滑行， 让速度下降到 32km/h. 如果电瓶断电的话，可能要，加速-减速重复5次。 12345核心：88km/h 保持3/5分钟， 然后，丢油门速度降到32， 反复5次左右。转速基本 2000转以上。]]></content>
+      <categories>
+        <category>汽车维修</category>
+      </categories>
+      <tags>
+        <tag>obd</tag>
+        <tag>飞度</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[README]]></title>
+    <url>%2F2022%2F02%2F27%2FReadme%2F</url>
+    <content type="text"><![CDATA[READMESimple blog record...]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[重读《孔乙己》]]></title>
+    <url>%2F2019%2F01%2F17%2F%E9%87%8D%E8%AF%BB%E3%80%8A%E5%AD%94%E4%B9%99%E5%B7%B1%E3%80%8B%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp; 《孔乙己》是中学时期就学习的课文了，这么多年过去也不会忘记，依然记得经典语录：“窃书不算偷”的名言， 茴香豆的茴字，茴字有四样写法； &emsp;&emsp; 网上或者当时的学习此文，都是必须要把此文放在当时的历史背景，特定环境下，去分析和理解文章的。查看了以下网文，都是非常的深刻。比如，百度：12345《孔乙己》是近代文学巨匠鲁迅所著的短篇小说，最早发表在1919年4月《新青年》第六卷第四号 [1] ，后编入《呐喊》，是鲁迅在“五四”运动前夕继《狂人日记》之后第二篇白话小说。小说描写了孔乙己在封建腐朽思想和科举制度毒害下，精神上迂腐不堪，麻木不仁，生活上四体不勤，穷困潦倒，在人们的嘲笑戏谑中混度时日，最后被封建地主阶级所吞噬的悲惨形象。篇幅不长，但是深刻揭露了当时科举制度对知识分子精神的毒害和封建制度“吃人”的本质。具有强烈的反封建意义。 先生写此文，是在特定的社会背景下，刻画人物背后，反映出当时非常深刻的问题。好的文章，能够历久弥新，放在当今的社会来解读，一样也具有非常的现实意义。孔乙己是不幸的，作为迂腐的知识分子，但身上依然闪烁着自己的光芒，哪怕被别人嘲笑，有自己的坚持。在不同的时代， 不同的社会， 希望自己不要成为下一个孔乙己，而被社会所遗弃。 孔乙己是善良的。 尽管自己非常穷酸，孩子们围住他，他“便给他们茴香豆吃”，一人一颗。直到分到不多时，伸开五指将碟子罩住，弯腰下去说道，“不多了，我已经不多了。”直起身又看一看豆，自己摇头说，“不多不多！多乎哉？不多也。”于是这一群孩子都在笑声里走散了。 尽管自己生活不如意，也不会迁怒于别人，虽然喝酒时，也遭遇到“短衣帮”们的嘲笑。 孔乙己是有自己的坚持的。 尽快穷困潦倒的读书人， 但他确实是站着喝酒却穿着长衫的惟一的人。按照先生的理解：劳动人民为主的“短衣帮”都是站在外面喝酒的； 地主阶级、有钱人和读书人为主的“长衫客”都是走进酒店的包间坐着，慢慢享受酒肉佳肴的。所以，孔乙己就成了唯一的，特别的人了。尽管穷，孔乙己在酒店里，品行却比别人都好，就是从不拖欠；虽然间或没有现钱，暂时记在粉板上，但不出一月，定然还清。 社会上的人，形形色色，非常复杂；有的人为了苍蝇小利和嗟来之食，卑躬屈膝； 有的人因一己之私人恩怨，迁怒社会和无辜之人，全无道德底线；比孔乙己还不如； 孔乙己是重视知识的。 尽快茴字的四种写法，满口的之乎者也，不能给他带来更多好运，但是也知道知识的作用， 比如和先生说道：“不能写罢？……我教给你，记着！这些字应该记着。将来做掌柜的时候，写账要用。” 无论什么时候，真的希望，孔乙己们有个好的归属，好的未来。。。]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>小说</tag>
+        <tag>鲁迅</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[呐喊目录]]></title>
+    <url>%2F2019%2F01%2F17%2F%E5%91%90%E5%96%8A%E7%9B%AE%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[《呐喊》图文典藏本，岳麓书社，出版；主要收录了以下文章： 自序 狂人日记 孔乙己 药 明天 一件小事 头发的故事 风波 故乡 阿Q正传 端午节 白光 兔和猫 鸭的喜剧 社戏]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>小说</tag>
+        <tag>鲁迅</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[呐喊- 自序03]]></title>
+    <url>%2F2018%2F12%2F19%2F%E5%91%90%E5%96%8A-%20%E8%87%AA%E5%BA%8F03%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp; 上次说到说先生弃笔从文了，先生觉得第一要著，是改变他们的精神，这话放在现在更加适用了，大家起早贪黑改善物质和经济的时候，精神建设也一样不能落下，否则就像瘸子一样，一瘸一瘸无法奔跑。先生年轻时，文艺青年一个，也像我们一样满腔热血； 一不小心创业了，邀约了几个文艺青年，打算出本杂志《新生》；和现在全民创业，大众创业一样，风险巨大， 先是有些资本投入， 再扩充了一些业务人员（文字担当者），然后，像创业者大多数一样，好景不长， 先是一个文字人员离职，然后是资本方也跑了。到最后的结果，可想而知，剩下的 几个人也为各自的命运和生活，各自奔跑了，《新生》就这样不幸夭折了。 &emsp;&emsp; 大家都说，成功者的生活很相似， 落魄者的生活各不同。 成功者，富豪者生活很相似，无非有钱了，买天买地买空气，我的理解是：无非是买了大房子，很多的房子，买了很多地产； 买了豪车还不够，买飞机游轮， 国内的空气不好，教育不好，买国外的空气，移民了。先生落魄时，也是百无聊赖，采用各种办法来麻醉自己，闭门不出，宅在家中抄写古碑，少有朋友来串门。一日，一位老朋友金心异来串门，是想邀约先生能够写些文章，金心异在办《新青年》， 估计也是半死不活，没有多少人来问津此杂志。先生一些话倒是蛮有意思： 12假如一间铁屋子，是绝无窗户而万难破毁的， 里面有许多熟睡的人们， 不久都要闷死了，然而是从昏睡入死灭，并不感到就死的悲哀。现在你大嚷起来，惊起了较为清醒的几个人，使这不幸的少数者来受无可挽救的临终的苦楚， 你倒以为对得起他们么？ 1然而几个人既然起来，你不能说决没有毁坏这铁屋的希望。 &emsp;&emsp; 是的，先生虽然有自己的意见，然而说到希望，确实是不能抹杀的。 因为希望在于未来，所以便答应做些文章，算是呐喊几声，聊以慰己那些在寂寞中奔驰的勇士，使他们不惮于前行； 相关系列文章，结集起来，便是《呐喊》的由来。]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>小说</tag>
+        <tag>鲁迅</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[C++引用]]></title>
+    <url>%2F2018%2F11%2F22%2Fc%2B%2B%E5%BC%95%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[c++ 引用用法 引用 是c++中一个强有力的语法， 在编程中非常使用； 一般来说，函数的参数作为局部变量，对局部变量的操作不会影响到外部变量，如果想要修改传入的参数，那么只能使用指针。 有没有办法不使用指针，也能修改传入的参数呢？ 一个方便的方法是： c++的引用；引用不会产生副本，而是给变量起了一个别名而已。其实是同一个变量。对引用的变量的操作，其实就是对原变量的操作。 引用的使用特别简单： 就是在变量名前，加一个&amp;，即可 在把一个体积较大的结构变量当作函数的参数时， 使用引用方式的好处：1）不必为实际参数建立副本， 可以节省存储空间；2） 不需要传递实际参数的值， 可以大大节省传递参数的时间；3） 如果形式参数是： 指针型引用变量的话，比如： int * &amp;p, 则在函数内部可以将p作为普通的变量使用， 可大大降低程序编写的复杂程度，从而降低程序的出错率。 12345678910111213141516171819202122232425#include "LinkList.h"void initList_L(LinkList &amp;first) //c++引用，简单，first的副本，可以改变first ----OK..&#123; //初始化单链表，建立只有头结点的空链表； first = (LinkNode *)malloc(sizeof(LinkNode)); //创建头结点first first-&gt;link = NULL; //置空&#125;void initList_L_02(LinkList *first) //测试用c语言指针，不用c++引用,可以改变 ----OK..&#123; //初始化单链表，建立只有头结点的空链表； *first = (LinkNode *)malloc(sizeof(LinkNode)); //创建头结点 (*first)-&gt;data = 8888; printf("L_02:set first-&gt;data = 8888\n"); (*first)-&gt;link = NULL; //置空&#125;void initList_L_03(LinkList first) //测试用c语言指针，不用c++引用, c函数参数是传值， ---FAILED. //要改变first，必须采用LinkList *first。&#123; //初始化单链表，建立只有头结点的空链表； first = (LinkNode *)malloc(sizeof(LinkNode)); //创建头结点，first改变会失败。 first-&gt;data = 8888; printf("L_03:set first-&gt;data = 8888\n"); first-&gt;link = NULL; //置空&#125; 测试主程序中，测试： 123456789LinkList L5;initList_L_02(&amp;L5);//check L5-&gt;data == 8888 ??printf("the data of L5: %d \n",L5-&gt;data);LinkList L6;initList_L_03(L6);//check L6-&gt;data == 8888 ??printf("the data of L6: %d \n",L6-&gt;data); 函数initList_L_03（）， 无法修改first值； c函数参数默认是传值，要改变first，必须采用LinkList * first。采用c++引用的话， 比较简单。如果采用指针的话，数据访问都要以 ( * first ) -&gt; data的形式，来访问数据。]]></content>
+      <categories>
+        <category>编程语言</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[呐喊- 自序02]]></title>
+    <url>%2F2018%2F11%2F22%2F%E5%91%90%E5%96%8A-%E8%87%AA%E5%BA%8F02%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp; 稍安勿躁，上接前文，说到鲁迅先生去k学堂上学的事情。 学习了不少新学的知识，物理，数学，地理，历史，人体解剖，生化营养学；这些知识现在看来也是我们现在学校里面学习的基本内容，可能深入程度不一样而已。从这些知识内容，对比先生记得的先前医生的议论和方药比较起来，渐渐悟出中药不过是骗人的把戏而已。如果现在学习中医理论，临床实现的人听到，可能要气死了。而且从译出的历史上，又知道日本维新是大半发端于西方医学的事实。这也说明了学习和尊重自然科学和规律的重要性。 &emsp;&emsp; 先生当时的理想和美梦，可能是好好学习医学，等待毕业回来后救死扶伤，救百姓于百病之中。 然而课间休息，播放一些影片的时候，看到了一些让人难以忘怀的时刻。摘了如下：1234其时正当日俄战争的时候，关于战事的画片自然也就比较的多了，我在这一个讲堂中，便须常常随喜我那同学们的拍手和喝采。有一回，我竟在画片上忽然会见到我久违的许多中国人了，一个绑在中间，许多站在左右，一样是强壮的体格，而显出麻木的神情。据解说，则绑着的是替俄国做了军事上的侦探，正要被日军砍下头颅来示众，而围着的便是来鉴赏这示众的盛举的人们。 &emsp;&emsp; 这一学年没有完，先生就到东京了， 也算是留学了，因为从上面这一刻，先生便觉得医学并非一件最要紧的事情，凡是愚弱的国民，即使体格如何健壮，也只能做毫无意义的示众材料和看客。 所以，先生觉得第一要著，是在改变他们的精神，而善于改变精神的是，要推文艺，当时去东京出国留学的，都是活学习法政理化，很少有人学习文学和美术。即使到了2018年的现代， 出国留学的也多是这些吧。先生也算是弃医从文了，转换了一个战场，更多要从精神层面去改变大众。 先生说的这个问题，到现在估计依然是一项不可能完成的任务。 单单靠几个知识分子，作家写几篇文章，振臂高呼一下，可能也是无济于事的了。不过，有句成语：千里之堤，溃于蚁穴。先生的提法，靠文艺去改变国民的精神是没有错;要人人参与其中，人人都是一只小蚂蚁，多读书，读好书，积极改变我们的认知，尊重知识，长期以往，才能有所成效。爱读书，形成一种自发的，自觉的行动，才能提振大家的精神。 暂时先到这里， 下次继续…]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>小说</tag>
+        <tag>鲁迅</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[呐喊- 引子]]></title>
+    <url>%2F2018%2F11%2F17%2F%E5%91%90%E5%96%8A%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp;在中学，高中都学习过鲁迅先生的各种杂文和小说，比如：《纪念刘和珍君》、《孔乙己》、《祥林嫂》、《从百草园到三味书屋》、《阿Q正传》、《社戏》、《药》、《藤野先生》、《范爱农》等等，在当时也是学校考试经常考的内容。 先生的各种杂文犀利、深刻、揭露当时社会的各种怪现象，透过表面看本质，入木三分。由于本人学生时代，思想不成熟，理解也非常肤浅。 毕业多年后，有幸重新阅读先生的文章，权且当作重新温习，同时也可以系统地学习和研读先生各种小说集， 来认识了解当时社会的现象和先生的思维和思想，也作为训练自己写作和表达能力的一部分。一个社会人除了专业知识，还得要有文章的写作和表达能力。&emsp;&emsp;这里先从阅读鲁迅先生的《呐喊》小说集，作为阅读和写作的起点吧，分析和点评小说集的内容，结合自己的一些理解，分享一些心得和感想，也做自己个人学习阅读的记录。虽然作为IT人，很遗憾多年没有维护一个自己的博客，作为自己学习成长的记录，还是那句话：活到老学到老。什么开始都不晚。这个小站，就作为自己的新开始，新的起点。什么时候开始都不晚，立即行动。Work hard, Day Day up !!! &emsp;&emsp;读《自序》，大多青年人爱做梦，先生也不例外；一般人大多做的梦，随着时间消失和现实的无可奈何，慢慢健忘了，或者微信朋友圈太多的消息新闻，而淹没了自己的。先生的久久不能忘怀的寂寞时光，便成了《呐喊》的由来。虽然是自序，但还是有不少精彩的思想火花。自序写于一九二二年十二月三日，于北京。小时候先生久病的父亲，遍请了有名的中医也没有挽回生命，看来先生对中医也是没有好感，以至于发出“中医不过是一个有意的无意的骗子”的言论。我也多少受到了这种言论的影响，对中医不以为然，慢性病可以看中医，要生死的病，还是看西医吧。先生父亲病故后，家境从小康之家而坠入困顿。这样的境遇，是谁遇上也是不能忘怀的了，家里好不容易凑成路费，去k学堂，应该是一个洋办的学堂吧，学习洋务。学习洋务在那时候应该是属于不务正业的,看看这段精彩的描述： 12因为那时读书应试是正路，所谓学洋务，社会上便以为是一种走投无路的人，只得将灵魂出卖给鬼子，要加倍的奚落而且排斥的，而况伊又看不见自己的儿子了。 &emsp;&emsp;看来先生那时的正路是读书，现在也同样如此；虽然现在偶尔还是有读书无用论的叫嚣，但长远来看，读书给你了认识世界的钥匙，给你了辨别是非的能力，给了你思维无限延伸的可能。呵呵，学洋务，其实现在我们都在学习洋务，反而把老祖宗留下来的美好的东西弄丢了，先生如果在的今天又是一番怎样的感概。现在我们不少人学习洋务达到了登峰造极的地步了，不少人直接到洋人的地盘去了，继续在国内赚钱。估计即使把灵魂出卖给鬼子，鬼子还是看不起你。先生去的地方，应该算是新式的学堂，看看先生都念了哪些方面的课程：格致（清朝末年讲西学的人用它做物理/化学等自然科学的总称），算学(数学，算术)，地理，历史，绘图，体操，木版的全体新论(人体解剖的医学书)，化学卫生论(近代中国最早的生化和营养学科学的启蒙读物)。看来是涉及西方的科学了，而不是传统的四书五经，八股文了。学习的知识应该是比较潮流和当时社会超前的。 暂时先到这里，下次继续：《呐喊-自序02》。]]></content>
+      <categories>
+        <category>阅读</category>
+      </categories>
+      <tags>
+        <tag>小说</tag>
+        <tag>鲁迅</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo常见命令和问题]]></title>
+    <url>%2F2018%2F11%2F16%2Fhexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%92%8C%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[1. hexo常用命令和问题1.1. 部署步骤每次部署的步骤，可按以下三步来进行。 12345hexo cleanhexo generatehexo deploy 1.2. 本地调试 在执行下面的命令后， 123$ hexo g #生成$ hexo s #启动本地服务，进行文章预览调试 可以用简化的一条命令1hexo s -g 1.3. 总结1.3.1. 常用命令12345678910111213hexo new &quot;postName&quot; #新建文章hexo new page &quot;pageName&quot; #新建页面hexo generate #生成静态页面至public目录hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）hexo deploy #将.deploy目录部署到GitHubhexo help # 查看帮助hexo version #查看Hexo的版本 1.3.2. 复合命令123hexo deploy -g #生成 加 部署hexo server -g #生成 加 预览 命令的简写为： 1234567hexo n == hexo newhexo g == hexo generatehexo s == hexo serverhexo d == hexo deploy 1.3.3. 配置Hexo配置参考: http://ibruce.info/2013/11/22/hexo-your-blog/ 1.4. hexo常见问题1.4.1. 评论问题valine自带的文章阅读统计counter，和 评论comment冲突了。 感觉评论，跑到访问量里面来了。123网友提供方法：1. 要不用valine自带的文章阅读统计2. 要不就用同一个id和key： ----》 目前我采用这个。。 1.4.2. 全文阅读标志1&lt;!--more--&gt; 1.4.3. 评论通知站长此项目是一个对 Valine 评论系统的拓展应用，可增强 Valine 的邮件通知功能。基于 Leancloud 的云引擎与云函数。可以提供邮件 通知站长 和 @ 通知 的功能，而且还支持自定义邮件通知模板.1http://www.zhaojun.im/hexo-valine-modify/ 1.4.4. 添加结束标语————- 本 文 结 束 感 谢 您 的 阅 读 ————-1https://asdfv1929.github.io/2018/01/28/add-the-end/ 1.4.5. hexo博客图片问题1 把主页配置文件_config.yml 里的post_asset_folder:这个选项设置为true 2 在你的hexo目录下执行这样一句话npm install hexo-asset-image –save，这是下载安装一个可以上传本地图片的插件，来自dalao：dalao的git 3 等待一小段时间后，再运行hexo n “xxxx”来生成md博文时，/source/_posts文件夹内除了xxxx.md文件还有一个同名的文件夹 4 最后在xxxx.md中想引入图片时，先把图片复制到xxxx这个文件夹中，然后只需要在xxxx.md中按照markdown的格式引入图片 注意： xxxx是这个md文件的名字，也是同名文件夹的名字。只需要有文件夹名字即可，不需要有什么绝对路径。你想引入的图片就只需要放入xxxx这个文件夹内就好了，很像引用相对路径。 5 最后检查一下，hexo g生成页面后，进入public\2017\02\26\index.html文件中查看相关字段，可以发现，html标签内的语句是&lt;img src=&quot;2017/02/26/xxxx/图片名.jpg&quot;&gt;，而不是&lt;img src=&quot;xxxx/图片名.jpg&gt;。这很重要，关乎你的网页是否可以真正加载你想插入的图片。 1.4.6. 版权问题主题配置直接设置copyright 1.4.7. 博客个人图片问题主题配置设置： avatar: /images/jack.jpgin theme directory(source /images) 进行更换 1.4.8 执行hexo deploy命令 tags文件夹不上传是因为 .gitignore_global文件 添加了tags的文件夹，从而导致tags文件夹，hexo部署不上传的问题。 从忽略文件中，删除tags,就可以上传tags文件夹里面的tag了。]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F11%2F16%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[cmake使用]]></title>
+    <url>%2F2018%2F11%2F15%2Fcmake%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[1. cmake使用1.1. 进行外部编译，不会把源代码搞乱养成喜欢进行外部编译(out-of-source build) 而不是in-source buildout-of-source build一般在源文件的顶层目录中 新建build目录 对于命令行可以 cd build 然后 cmake .. -G”MinGW Makefiles”即可 这样所有的临时文件 都会放在build目录下不会和source有任何的瓜噶。1234567891011121314151617181920212223➜ /Users/jack/Documents/learn_cmake &gt;➜ /Users/jack/Documents/learn_cmake &gt;➜ /Users/jack/Documents/learn_cmake &gt;➜ /Users/jack/Documents/learn_cmake &gt;lltotal 16-rw-r--r-- 1 jack staff 539B 10 9 23:34 CMakeLists.txt-rw-r--r-- 1 jack staff 1.9K 10 9 20:50 Complex.cppdrwxr-xr-x 13 jack staff 416B 10 9 23:58 build_he➜ /Users/jack/Documents/learn_cmake &gt;cd build_he➜ /Users/jack/Documents/learn_cmake/build_he &gt;lltotal 184-rw-r--r-- 1 jack staff 20K 10 9 23:56 CMakeCache.txtdrwxr-xr-x 44 jack staff 1.4K 10 9 23:58 CMakeFiles-rw-r--r-- 1 jack staff 3.6K 10 9 23:56 CPackConfig.cmake-rw-r--r-- 1 jack staff 4.0K 10 9 23:56 CPackSourceConfig.cmake-rw-r--r-- 1 jack staff 304B 10 9 23:56 CTestTestfile.cmake-rw-r--r-- 1 jack staff 2.8K 10 9 23:56 DartConfiguration.tcl-rw-r--r-- 1 jack staff 19K 10 9 23:56 Makefiledrwxr-xr-x 3 jack staff 96B 10 9 23:56 Testing-rw-r--r-- 1 jack staff 1.4K 10 9 23:56 cmake_install.cmake-rw-r--r-- 1 jack staff 351B 10 9 23:56 compile_commands.json-rwxr-xr-x 1 jack staff 20K 10 9 23:58 test001➜ /Users/jack/Documents/learn_cmake/build_he &gt; 1.2. 加头文件，库文件12345//#set include and lib directory..include_directories("/Users/jack/Projects/googletest/googletest/include")link_directories("/Users/jack/Projects/googletest/googletest/mybuild")link_libraries("/Users/jack/Projects/googletest/googletest/mybuild/libgtest.a") 1.3. 多个子目录（子目录中不含cmakelists.txt）12345678//#TODO:每个子目录都要包含在内aux_source_directory(./UnitTests/template09 SRC09)aux_source_directory(./UnitTests/template01 SRC01)aux_source_directory(./UnitTests/sate_mode SRC02)aux_source_directory(./UnitTests SRC00)set(SOURCE $&#123;SRC00&#125; $&#123;SRC01&#125; $&#123;SRC02&#125; $&#123;SRC09&#125;)add_executable(test009 $&#123;SOURCE&#125;)]]></content>
+      <tags>
+        <tag>cmake</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+</search>
